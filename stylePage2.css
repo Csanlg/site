@@ -1,0 +1,307 @@
+@import url('https://fonts.googleapis.com/css2?family=Alegreya+Sans+SC:wght@100;300;400;500;700;800;900&family=Cuprum:wght@400;500;600;700&family=Alegreya Sans SC&display=swap');
+
+html {
+    display: flex;
+}
+
+body {
+    margin: 0;
+    width: 100%;
+    background-color: #222;
+    font-family: "Alegreya Sans SC"; /*Pattaya, Alegreya Sans SC  , Advent Pro*/
+}
+
+header {
+    display: flex;
+    width: 100%;
+    height: 7ch;
+    background-color: #28292b;
+    box-shadow: -10px 20px 20px rgba(0, 0, 0, 0.15);
+}
+
+header a{
+    text-decoration: none;
+    color: white;
+}
+
+.headerText {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin: 2ch;
+    width: 100%;
+    font-size: 2.5ch;
+}
+
+.add_button {
+    background-color: #222;
+    color: white;
+    padding: 0.2ch;
+    font-family:"Alegreya Sans SC";
+    font-weight: 100;
+    font-size: 2.3ch;
+    width: 12ch;
+    cursor: pointer;
+    border: 0px solid #333;
+    border-radius: 0px;
+    transition: 0.1s;
+}
+
+.add_button:hover {
+    color: rgb(255, 255, 255);
+    border: 3px solid #333;
+}
+
+.add_button:active {
+    background-color: #333;
+    border: 6px solid #333;
+}
+
+.logo {
+    font-weight: lighter;
+}
+
+.user_photo {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: 100;
+}
+
+.user_img {
+    margin: 1ch;
+    width: 4ch;
+    height: 4ch;
+    border-radius: 100%;
+}
+
+.container {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: center;
+    margin: 2ch;
+    background-color: #333;
+    max-width: 100%;
+    height: max-content;
+}
+
+.item {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 11ch;
+    height: 4ch;
+    margin: 1ch;
+    background-color: #222;
+    font-size: 5ch;
+    font-family: "Alegreya Sans SC";
+    font-weight: lighter;
+    text-transform: uppercase;
+    color: white;
+    cursor: pointer;
+    user-select: none;
+    box-shadow: -10px 20px 20px rgba(0, 0, 0, 0.15);
+    word-break: break-all;
+    transition: 1s;
+}
+
+/* ----------------------------------------------------------------------------------------------------------------- */
+/* Стили всплывающего окна по-умолчанию */
+.modal {
+    position: fixed; /* фиксированное положение */
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    background: rgba(0,0,0,0.5); /* фон */
+    z-index: 1050;
+    opacity: 0; /* по умолчанию модальное окно прозрачно */
+    -webkit-transition: opacity 200ms ease-in; 
+    -moz-transition: opacity 200ms ease-in;
+    transition: opacity 200ms ease-in; /* анимация перехода */
+    pointer-events: none; /* элемент невидим для событий мыши */
+    margin: 0;
+    padding: 0;
+}
+
+/* При отображении модального окно */
+.modal:target {
+    opacity: 1; /* делаем окно видимым */
+	pointer-events: auto; /* элемент видим для событий мыши */
+    overflow-y: auto; /* добавляем прокрутку по y, когда элемент не помещается на страницу */
+}
+/* ширина модального окна и его отступы от экрана */
+.modal-dialog {
+    position: relative;
+    width: auto;
+    margin: 10px;
+}
+@media (min-width: 576px) {
+  .modal-dialog {
+      max-width: 500px;
+      margin: 30px auto; /* отображение окна по центру */
+  }
+}
+/* Стили для блока с контентом окна */ 
+.modal-content {
+    position: relative;
+    display: -webkit-box;
+    display: -webkit-flex;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+    -webkit-flex-direction: column;
+    -ms-flex-direction: column;
+    flex-direction: column;
+    background-color: #fff;
+    -webkit-background-clip: padding-box;
+    background-clip: padding-box;
+    border: 1px solid rgba(0,0,0,.2);
+    border-radius: .3rem;
+    outline: 0;
+}
+@media (min-width: 768px) {
+  .modal-content {
+      -webkit-box-shadow: 0 5px 15px rgba(0,0,0,.5);
+      box-shadow: 0 5px 15px rgba(0,0,0,.5);
+  }
+}
+/* Стили заголовка окна */
+.modal-header {
+    display: -webkit-box;
+    display: -webkit-flex;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-align: center;
+    -webkit-align-items: center;
+    -ms-flex-align: center;
+    align-items: center;
+    -webkit-box-pack: justify;
+    -webkit-justify-content: space-between;
+    -ms-flex-pack: justify;
+    justify-content: space-between;
+    padding: 15px;
+    background-color: #222;
+    color: #fff;
+    border-bottom: 1px solid black;
+}
+.modal-title {
+    margin-top: 0;
+    margin-bottom: 0;
+    line-height: 1.5;
+    font-size: 1.25rem;
+    font-weight: 500;
+    font-family: "Alegreya Sans SC";
+    font-weight: 500;
+}
+/* Стили кнопки "х" ("Закрыть")  */
+.close {
+    float: right;
+    font-family: "Alegreya Sans SC";
+    font-weight: lighter;
+    font-size: 40px;
+    font-weight: 700;
+    line-height: 1;
+    color: #fff;
+    text-shadow: 0 1px 0 #fff;
+    opacity: .8;
+    text-decoration: none;
+}
+/* Стили для закрывающей кнопки в фокусе или наведении */
+.close:focus, .close:hover {
+    color: rgb(108, 108, 108);
+    text-decoration: none;
+    cursor: pointer;
+    opacity: .75;
+}
+/* Стили блока основного содержимого окна */
+.modal-body {
+  position: relative;
+    -webkit-box-flex: 30;
+    -webkit-flex: 1 1 auto;
+    -ms-flex: 1 1 auto;
+    flex: 1 1 auto;
+    padding: 15px;
+    overflow: auto;
+    background-color: #333;
+}
+
+/* ----------------------------------------------------------------------------------------------------------------- */
+.modal_input {
+    font-family: "Alegreya Sans SC";
+    font-weight: 100;
+    font-size: 2ch;
+    block-size: 4ch;
+    margin: 0.3ch;
+    border: none;
+    user-select: none;
+    background-color: #222;
+    color: #fff;
+    outline: none;
+    user-select: none;
+    cursor: pointer;
+    transition: 0.4s;
+}
+
+.modal_btn {
+    font-family: "Alegreya Sans SC";
+    background-color: #222;
+    color: #b0b0b0;
+    width: 15ch;
+    margin: 1ch;
+    border: 0px solid #333;
+    user-select: none;
+    cursor: pointer;
+    transition: 0.2s;
+    padding: 1.3ch;
+}
+
+.modal_btn:hover {
+    color: rgb(255, 255, 255);  
+}
+.modal_btn:active {
+    background-color: #606060;
+}
+
+.modal_input:focus   {
+    border: 0.1ch solid rgb(120, 120, 120);
+    padding: 0.8ch;
+    user-select: none;
+    cursor: pointer;
+}
+
+/* ----------------------------------------------------------------------------------------------------------------- */
+
+@media (max-width: 700px) {
+    .user_name {
+      display: none;
+    }
+    .add_button {
+        font-size: 1.5ch;
+    }
+    .logo {
+        font-size: 1.5ch;
+    }
+}
+
+.active_item {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 19ch;
+    height: 4ch;
+    margin: 1ch;
+    background-color: #222;
+    font-size: 5ch;
+    font-family: "Alegreya Sans SC";
+    font-weight: lighter;
+    text-transform: uppercase;
+    color: white;
+    cursor: pointer;
+    user-select: none;
+    box-shadow: -10px 20px 20px rgba(0, 0, 0, 0.15);
+    word-break: break-all;
+    transition: 1s;
+}
